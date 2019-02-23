@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using app01.Models;
 using app01.Data;
+using app01.Services;
 
 namespace app01
 {
@@ -39,11 +40,13 @@ namespace app01
 
             services.AddDbContext<app01Context>(options =>
                     options.UseMySql(Configuration.GetConnectionString("app01Context"), builder =>builder.MigrationsAssembly("app01")));
+
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService SeedingService)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService SeedingService, SellerService SellerService)
         {
             if (env.IsDevelopment())
             {
@@ -55,7 +58,7 @@ namespace app01
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
+             
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
