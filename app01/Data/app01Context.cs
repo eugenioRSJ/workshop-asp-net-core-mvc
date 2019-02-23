@@ -13,6 +13,9 @@ namespace app01.Models
         {
         }
 
-        public DbSet<app01.Models.Department> Department { get; set; }
+        public DbSet<Department> Department { get; set; }
+        public DbSet<Seller> Seller { get; set; }
+        public DbSet<SalesRecord> SalesRecords { get; set; }
+        
     }
 }
