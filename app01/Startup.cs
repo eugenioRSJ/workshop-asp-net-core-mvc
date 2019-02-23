@@ -37,7 +37,7 @@ namespace app01
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<app01Context>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("app01Context")));
+                    options.UseMySql(Configuration.GetConnectionString("app01Context"), builder =>builder.MigrationsAssembly("app01")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
