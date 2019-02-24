@@ -12,7 +12,8 @@ namespace app01.Models
         public string Email { get; set; }
         public DateTime BrithDate { get; set; }
         public double BaseSalary { get; set; }
-        public Department Departa    { get; set; }
+        public Department Departament    { get; set; }
+        public int DepartmentId    { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
         public Seller() { }
@@ -24,7 +25,7 @@ namespace app01.Models
             Email = email;
             BrithDate = brithDate;
             BaseSalary = baseSalary;
-            Departa = departa;
+            Departament = departa;
         }
 
         public void AddSales(SalesRecord sr)

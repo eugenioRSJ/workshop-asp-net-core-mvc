@@ -22,6 +22,7 @@ namespace app01.Services
 
         public void Insert(Seller obj)
         {
+            obj.Departament=_context.Department.First();
             _context.Seller.Add(obj);
             _context.SaveChanges();
         }
