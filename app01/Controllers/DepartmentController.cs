@@ -9,11 +9,11 @@ using app01.Models;
 
 namespace app01.Controllers
 {
-    public class DepartmentsController : Controller
+    public class DepartmentController : Controller
     {
         private readonly app01Context _context;
 
-        public DepartmentsController(app01Context context)
+        public DepartmentController(app01Context context)
         {
             _context = context;
         }
