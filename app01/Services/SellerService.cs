@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace app01.Services
 {
@@ -29,7 +30,8 @@ namespace app01.Services
 
         public Seller FindById(int Id)
         {
-            return _context.Seller.FirstOrDefault(obj => obj.Id == Id);
+
+            return _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == Id);
         }
 
         public void Remove (int Id)
