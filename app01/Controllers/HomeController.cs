@@ -28,7 +28,7 @@ namespace app01.Controllers
             ViewData["Message"] = "Sou Eugênio Rocha ";
             ViewData["Email"] = "eugeniojunio99@gmail.com";
             return View();
-        }
+        }   
 
         public IActionResult Privacy()
         {
